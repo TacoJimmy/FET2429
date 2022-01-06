@@ -63,8 +63,8 @@ def read_MEinfor(a, b): # send data to cloud
     ACPORT = '/dev/ttyS4'
     MainPW_ID = 1
     AC01PW_ID = 2
-    AC02PW_ID = 2
-    AC03PW_ID = 2 
+    AC02PW_ID = 3
+    AC03PW_ID = 4 
     AC04PW_ID = 2
     AC05PW_ID = 6 #id 6 = empty
     all_token = findtoken.total_token()
@@ -73,9 +73,9 @@ def read_MEinfor(a, b): # send data to cloud
     # CtrlMode = ipcinfo.read_data() # check control mode
     eftmqtt.connect_storemeter(all_token['storemeter'],MeterPORT,MainPW_ID,1,all_token['PWmode'])  
     eftmqtt.connect_ACMeter(all_token['ACMeter01'], MeterPORT, AC01PW_ID, 1)
-    eftmqtt.connect_ACMeter(all_token['ACMeter02'], MeterPORT, AC02PW_ID, 2)
-    eftmqtt.connect_ACMeter(all_token['ACMeter03'], MeterPORT, AC03PW_ID, 3)
-    eftmqtt.connect_ACMeter(all_token['ACMeter04'], MeterPORT, AC04PW_ID, 4)
+    eftmqtt.connect_ACMeter(all_token['ACMeter02'], MeterPORT, AC02PW_ID, 1)
+    eftmqtt.connect_ACMeter(all_token['ACMeter03'], MeterPORT, AC03PW_ID, 1)
+    eftmqtt.connect_ACMeter(all_token['ACMeter04'], MeterPORT, AC04PW_ID, 2)
     eftmqtt.connect_ACMeter(all_token['ACMeter05'], MeterPORT, AC05PW_ID, 2)
     
     #print("send data to cloud 02")
