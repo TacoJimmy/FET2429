@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flask普通表單提交資料，使用flask訊息閃現來將反饋顯示給使用者</title>
+</head>
+<body>
+    
+    <h1> 使用者註冊</h1>
+    <br>
+    {# action屬性。如果不寫 預設提交給自己 methodsh屬性 來指定表單的提交方式#}
+    <form method="post">
+        <lable> 使用者名稱</lable>
+        {# from 提交資料通過name選擇器來提交#}
+        <input type="text" name="username" placeholder="請輸入使用者名稱">
+        <br>
+
+
+        <label>密碼</label>
+        <input type="password" name="password">
+        <br>
+
+        <label>確認密碼</label>
+        <input type="password" name="password1">
+        <br>
+
+        {# 將flask 訊息閃現和後臺聯絡起來 #}
+        {# 將訊息閃現裡面的所有訊息遍歷,取出需要返回給使用者的訊息#}
+        {% for message in get_flashed_messages() %}
+                    {{ message }}
+        {% endfor %}
+
+        <input type="submit" value="註冊">
+    </form>
+
+</body>
+</html>
