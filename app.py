@@ -161,6 +161,7 @@ def AutoCtrl(a, b):
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,2) #送風
                 time.sleep(5)
+                print (CtrlMode.count_automode())
             if CtrlFunc == 1:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,2)
                 time.sleep(5)
@@ -168,6 +169,7 @@ def AutoCtrl(a, b):
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,2)
                 time.sleep(5)
+                print (CtrlMode.count_automode())
             if CtrlFunc == 2:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,2)
                 time.sleep(5)
@@ -175,7 +177,8 @@ def AutoCtrl(a, b):
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,0)
                 time.sleep(5)
-            print (CtrlMode.count_automode())
+                print (CtrlMode.count_automode())
+            
 
 
 def ipc_subscribejob(ipc):
