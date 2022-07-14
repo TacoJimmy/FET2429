@@ -150,7 +150,8 @@ def AutoCtrl(a, b):
     print (ctrlmode)
     if ctrlmode == 0:
     
-        status = opentime.CheckDoorClose
+        #status = opentime.CheckDoorClose
+        status = 1
         print (status)
         if status == 1:
             if CtrlMode.read_AutoMode == 0:
