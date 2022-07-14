@@ -25,7 +25,7 @@ def count_automode():
     with open('Ctrlmode.json') as ACCtrlChange:
         ACOPSET = json.load(ACCtrlChange)
         ACCtrlChange.close
-        if ACOPSET['Autocunt'] <= 2:
+        if ACOPSET['Autocunt'] < 2 :
             ACOPSET['Autocunt'] += 1
         else:
             ACOPSET['Autocunt'] = 0
