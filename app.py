@@ -62,7 +62,7 @@ class Config(object):
             'func': '__main__:AutoCtrl',
             'args': (1, 2),
             'trigger': 'interval',
-            'seconds': 10
+            'minutes': 1
         }
     ]
 
