@@ -145,7 +145,7 @@ def demandcal(a, b):
     #print (ipcInfor.Readdemalrchang())
         
 def AutoCtrl(a, b):
-    ctrlmode = CtrlMode.read_automode
+    ctrlmode = CtrlMode.read_AutoMode
     print (ctrlmode)
     if ctrlmode == 0:
     
