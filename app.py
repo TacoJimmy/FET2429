@@ -62,7 +62,7 @@ class Config(object):
             'func': '__main__:AutoCtrl',
             'args': (1, 2),
             'trigger': 'interval',
-            'minutes': 15
+            'minutes': 1
         }
     ]
 
@@ -147,7 +147,7 @@ def demandcal(a, b):
 def AutoCtrl(a, b):
     if CtrlMode.read_automode == 0:
         status = opentime.CheckDoorClose
-        if status == 0:
+        if status == 1:
             if CtrlMode.read_AutoMode == 0:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
                 time.sleep(5)
