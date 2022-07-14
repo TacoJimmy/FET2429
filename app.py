@@ -145,6 +145,8 @@ def demandcal(a, b):
     #print (ipcInfor.Readdemalrchang())
         
 def AutoCtrl(a, b):
+    ACCtrl.AC_OPset('/dev/ttyS4',1,2) 
+    '''
     #ctrlmode = CtrlMode.read_AutoMode
     ctrlmode = 0
     print (ctrlmode)
@@ -160,7 +162,7 @@ def AutoCtrl(a, b):
             time.sleep(5)
             ACCtrl.AC_OPset('/dev/ttyS4',3,2) #送風
             time.sleep(5)
-            '''
+            
             if CtrlMode.read_AutoMode == 0:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
                 time.sleep(5)
