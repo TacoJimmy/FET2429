@@ -147,13 +147,9 @@ def demandcal(a, b):
 def AutoCtrl(a, b):
     ctrlmode = CtrlMode.read_AutoMode()
     print (ctrlmode)
-    '''
-    ctrlmode = 0
-    print (ctrlmode)
     if ctrlmode == 0:
     
-        #status = opentime.CheckDoorClose
-        status = 1
+        status = opentime.CheckDoorClose()
         print (status)
         if status == 1:
             ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
@@ -184,8 +180,7 @@ def AutoCtrl(a, b):
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,0)
                 time.sleep(5)
-            '''
-        #CtrlMode.count_automode
+        CtrlMode.count_automode()
 
 
 def ipc_subscribejob(ipc):
