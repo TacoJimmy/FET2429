@@ -153,6 +153,7 @@ def AutoCtrl(a, b):
         print (status)
         if status == 0:
             CtrlFunc = CtrlMode.read_AutoMode()
+            print (CtrlFunc)
             if CtrlFunc == 0:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
                 time.sleep(5)
