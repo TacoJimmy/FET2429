@@ -152,21 +152,22 @@ def AutoCtrl(a, b):
         status = opentime.CheckDoorClose()
         print (status)
         if status == 0:
-            if CtrlMode.read_AutoMode == 0:
+            CtrlFunc = CtrlMode.read_AutoMode()
+            if CtrlFunc == 0:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',2,2) #送風
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,2) #送風
                 time.sleep(5)
-            if CtrlMode.read_AutoMode == 1:
+            if CtrlFunc == 1:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,2)
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',2,0)
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,2)
                 time.sleep(5)
-            if CtrlMode.read_AutoMode == 2:
+            if CtrlFunc == 2:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,2)
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',2,2)
