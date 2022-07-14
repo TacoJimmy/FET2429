@@ -175,7 +175,7 @@ def AutoCtrl(a, b):
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,0)
                 time.sleep(5)
-        CtrlMode.count_automode()
+            print (CtrlMode.count_automode())
 
 
 def ipc_subscribejob(ipc):
