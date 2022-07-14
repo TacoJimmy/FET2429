@@ -145,11 +145,9 @@ def demandcal(a, b):
     #print (ipcInfor.Readdemalrchang())
         
 def AutoCtrl(a, b):
-    ACCtrl.AC_OPset('/dev/ttyS4',1,2)
-    ACCtrl.AC_OPset('/dev/ttyS4',2,0)
-    ACCtrl.AC_OPset('/dev/ttyS4',3,2) 
+    ctrlmode = CtrlMode.read_AutoMode
+    print (ctrlmode)
     '''
-    #ctrlmode = CtrlMode.read_AutoMode
     ctrlmode = 0
     print (ctrlmode)
     if ctrlmode == 0:
