@@ -152,7 +152,7 @@ def AutoCtrl(a, b):
         status = opentime.CheckDoorClose()
         print (status)
         if status == 0:
-            CtrlFunc = CtrlMode.read_AutoMode()
+            CtrlFunc = CtrlMode.read_Autocunt()
             print (CtrlFunc)
             if CtrlFunc == 0:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
