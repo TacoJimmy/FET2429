@@ -155,6 +155,15 @@ def AutoCtrl(a, b):
             CtrlFunc = CtrlMode.read_Autocunt()
             print (CtrlFunc)
             if CtrlFunc == 0:
+                AC_Infor1 = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',1)
+                if AC_Infor1[4] <= 24:
+                    ACCtrl.AC_SetTemp('/dev/ttyS4',1,22)
+                AC_Infor2 = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',2)
+                if AC_Infor1[4] <= 24:
+                    ACCtrl.AC_SetTemp('/dev/ttyS4',2,22)
+                AC_Infor3 = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',3)
+                if AC_Infor1[4] <= 24:
+                    ACCtrl.AC_SetTemp('/dev/ttyS4',3,22)
                 AC_Infor = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',1)
                 if AC_Infor[4] >= AC_Infor[3]:
                     ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
