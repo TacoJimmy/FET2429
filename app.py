@@ -155,9 +155,13 @@ def AutoCtrl(a, b):
             CtrlFunc = CtrlMode.read_Autocunt()
             print (CtrlFunc)
             if CtrlFunc == 0:
-                ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
+                AC_Infor = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',1)
+                if AC_Infor[4] >= AC_Infor[3]:
+                    ACCtrl.AC_OPset('/dev/ttyS4',1,0) #冷氣
+                else:
+                    ACCtrl.AC_OPset('/dev/ttyS4',1,2) #送風   
                 time.sleep(5)
-                ACCtrl.AC_OPset('/dev/ttyS4',2,0) #送風
+                ACCtrl.AC_OPset('/dev/ttyS4',2,0) #冷氣
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,2) #送風
                 time.sleep(5)
@@ -167,13 +171,21 @@ def AutoCtrl(a, b):
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',2,2)
                 time.sleep(5)
-                ACCtrl.AC_OPset('/dev/ttyS4',3,0)
+                AC_Infor = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',3)
+                if AC_Infor[4] >= AC_Infor[3]:
+                    ACCtrl.AC_OPset('/dev/ttyS4',3,0) #冷氣
+                else: 
+                    ACCtrl.AC_OPset('/dev/ttyS4',3,2) #送風
                 time.sleep(5)
                 print (CtrlMode.count_automode())
             if CtrlFunc == 2:
                 ACCtrl.AC_OPset('/dev/ttyS4',1,2)
                 time.sleep(5)
-                ACCtrl.AC_OPset('/dev/ttyS4',2,0)
+                AC_Infor = ACCtrl.AC_ReadFullFunction('/dev/ttyS4',2)
+                if AC_Infor[4] >= AC_Infor[3]:
+                    ACCtrl.AC_OPset('/dev/ttyS4',2,0) #冷氣
+                else: 
+                    ACCtrl.AC_OPset('/dev/ttyS4',2,2) #送風
                 time.sleep(5)
                 ACCtrl.AC_OPset('/dev/ttyS4',3,0)
                 time.sleep(5)
