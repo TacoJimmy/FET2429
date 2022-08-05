@@ -102,7 +102,18 @@ def AC_SetTemp(PORT,ID,mode): # mode = temp
     except:
         master.close()
         return ('loss_connect')
-    
+
+def AC_ReadHumi(PORT,ID):
+    try:
+        master = modbus_rtu.RtuMaster(serial.Serial(port=PORT, baudrate=9600, bytesize=8, parity='N', stopbits=1, xonxoff=0))
+        master.set_timeout(5.0)
+        master.set_verbose(True)
+        AC_readhumid = master.execute(ID, cst.READ_HOLDING_REGISTERS, 1094, 1)
+        return (AC_readhumid[0])
+    except:
+        master.close()
+        return ('loss_connect')
+
 def AC_ReadOPTemp(PORT,ID): 
     try:
         
