@@ -109,7 +109,8 @@ def AC_ReadHumi(PORT,ID):
         master.set_timeout(5.0)
         master.set_verbose(True)
         AC_readhumid = master.execute(ID, cst.READ_HOLDING_REGISTERS, 1094, 1)
-        return (AC_readhumid[0])
+        AC_humid = AC_readhumid[0] * 0.01
+        return (AC_humid)
     except:
         master.close()
         return ('loss_connect')
