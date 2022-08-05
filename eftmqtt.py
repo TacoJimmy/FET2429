@@ -312,11 +312,13 @@ def connect_ACstatus(AC_token, COMport, ACID):
             ACCtrl.AC_OPset(COMport,ACID,2) #trun AC to fan only mode
 
     AC_Status = ACCtrl.AC_ReadFullFunction(COMport, ACID)    
-    
+    AC_humid = ACCtrl.AC_ReadHumi('/dev/ttyS4',10) 
     # 警報連線異常
     if AC_Status[5] == 2:
         ipcalr_token = findtoken.device_token('IPCAlr')
         ipcalert.AC_connectalerty(ipcalr_token , AC_token)
+    
+    
     AC_payload = {
         "emsstoreairconditioningstatus": AC_Status[0],
         "emsstoreoperationmode":AC_Status[1],
@@ -324,7 +326,8 @@ def connect_ACstatus(AC_token, COMport, ACID):
         "emsstoresettemperature":AC_Status[3],
         "emsstoreroomtemperature": AC_Status[4],
         "emsvendorinfo":"歐陸通風-ADTEK-AEMDR TEL:0935-534163",
-        "emsdevicealive":AC_Status[5]
+        "emsdevicealive":AC_Status[5],
+        "emsstoreroomhumidity":AC_humid
         }
 
     client = mqtt.Client('', True, None, mqtt.MQTTv31)
