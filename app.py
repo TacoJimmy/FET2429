@@ -56,14 +56,15 @@ class Config(object):
             'args': (1, 2),
             'trigger': 'interval',
             'minutes': 15
-        },
-        {
-            'id': 'AutoCtrl',
-            'func': '__main__:AutoCtrl',
-            'args': (1, 2),
-            'trigger': 'interval',
-            'minutes': 15
         }
+        
+        
+            #'id': 'AutoCtrl',
+            #'func': '__main__:AutoCtrl',
+            #'args': (1, 2),
+            #'trigger': 'interval',
+            #'minutes': 15
+        
     ]
 
 def read_MEinfor(a, b): # send data to cloud
